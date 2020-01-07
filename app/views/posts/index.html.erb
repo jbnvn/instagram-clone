@@ -1,0 +1,96 @@
+<!-- <h1>TDL</h1>
+- Responsive
+- Adding post with AJAX
+- Adding likes & commenting
+- Landing page for inscription with Typescript .js
+- Sweet alert
+- Pundit -->
+
+<!-- <div class="rounded"> -->
+
+<!--   <h1>It's hot !</h1> -->
+
+  <div class="post-container">
+
+    <% @posts.each do |p| %>
+
+      <div class="post">
+
+        <%= link_to user_path(p) do %>
+          <div class="post-header">
+            <%= cl_image_tag p.user.photo.key, height: 500, width: 500, crop: :thumb, gravity: :face, class: "avatar"%>
+            <p class="post-author"><%= p.user.username %></p>
+          </div>
+        <% end %>
+
+        <%#= link_to post_path(p) do %>
+        <div class="post-img">
+          <%= cl_image_tag p.photo.key, height: 400, width: 400, crop: :fill %>
+        </div>
+
+        <div class="post-info">
+          <span class="post-header-author"><%= p.user.username %></span>
+          <span class="post-description"> <%= p.description.truncate(120, :separator => ' ') %></span>
+          <p class="post-timestamp"> About <%= distance_of_time_in_words(p.created_at, Date.today)%> ago</p>
+        </div>
+        <%# end %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+<!-- </div> -->
+
+<!-- <div class="container bg-white rounded">
+  <h1>Trending</h1>
+  <div class="row">
+    <% @posts.each do |p| %>
+      <div class="col-sm-3 py-3 mx-auto">
+        <%= link_to post_path(p) do %>
+        <div>
+          <%= cl_image_tag p.photo.key, height: 300, width: 300, crop: :fill %>
+        </div>
+        <div>
+          <%= p.description %>
+          <%= "posted by #{p.user.username}" %>
+          <%= "posted #{p.created_at.strftime('%d-%m-%Y')}" %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div> -->
+
+<!-- <div class="container bg-white rounded">
+  <h1>Fresh</h1>
+  <div class="row">
+    <% @posts.each do |p| %>
+      <div class="col-sm-3 py-3 mx-auto">
+        <%= link_to post_path(p) do %>
+        <div>
+          <%= cl_image_tag p.photo.key, height: 300, width: 300, crop: :fill %>
+        </div>
+        <div>
+          <%= p.description %>
+          <%= "posted by #{p.user.username}" %>
+          <%= "posted #{p.created_at.strftime('%d-%m-%Y')}" %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div> -->
+
+
+
+<!-- Page User posts
+
+Sticky :
+user photo
+user name
+user //posts #
+user bio
+user location
+user interest
+ -->
