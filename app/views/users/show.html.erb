@@ -1,44 +1,55 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+Users#show
+Find me in app/views/users/show.html.erb
 
-<div class="user_header">
-  <div>
-    <%= cl_image_tag @user.photo.key, height: 500, width: 500, crop: :thumb, gravity: :face, class: "avatar-extralarge"%>
-  </div>
-  <div>
-    <h1><%= @user.username %></h1>
-    <p>description</p>
-    <p> <%= @user_posts.count %> publications</p>
-  </div>
-</div>
-
-
-<div class="user-post-container">
-
-  <% @user_posts.each do |p| %>
-
-    <div class="user-post">
-
-      <%#= link_to post_path(p) do %>
-        <!-- <div class="post-header"> -->
-          <!-- <div class="avatar" style="background-image: url(https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9fit=crop&w=1534&q=80); background-size: cover;"></div> -->
-          <!-- <p class="post-author"><%#= p.user.username %></p> -->
-        <!-- </div> -->
-      <%# end %>
-
-      <%= link_to post_path(p) do %>
-      <div class="post-img">
-        <%= cl_image_tag p.photo.key, height: 300, width: 300, crop: :fill %>
+<div class="container">
+  <header class="user_header">
+    <div id="avatar-holder">
+      <%= cl_image_tag @user.photo.key, height: 500, width: 500, crop: :thumb, gravity: :face, class: "avatar-extralarge"%>
+    </div>
+    <section>
+      <div>
+        <h1><%= @user.username %></h1>
+      </div>
+      <ul>
+        <li>
+          <span><span class ="user-stats"><%= @user_posts.count %></span> publications</span>
+        </li>
+        <li>
+          <span><span class ="user-stats"><%= @user_posts.count %></span> followers</span>
+        </li>
+        <li>
+          <span><span class ="user-stats"><%= @user_posts.count %></span> following</span>
+        </li>
+      </ul>
+      <div>
+        <p>description</p>
       </div>
 
-      <!-- <div class="post-info">
-        <span class="post-header-author"><%#= p.user.username %></span>
-        <span class="post-description"> <%#= p.description.truncate(120, :separator => ' ') %></span>
-        <p class="post-timestamp"> About <%#= distance_of_time_in_words(p.created_at, Date.today)%> ago</p>
-      </div> -->
-      <% end %>
-    </div>
+    </section>
+  </header>
 
-  <% end %>
+
+  <div class="user-post-container">
+
+    <% @user_posts.each do |p| %>
+
+      <div class="user-post">
+
+        <%#= link_to post_path(p) do %>
+          <!-- <div class="post-header"> -->
+            <!-- <div class="avatar" style="background-image: url(https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9fit=crop&w=1534&q=80); background-size: cover;"></div> -->
+            <!-- <p class="post-author"><%#= p.user.username %></p> -->
+          <!-- </div> -->
+        <%# end %>
+
+        <%= link_to post_path(p) do %>
+          <%= cl_image_tag p.photo.key, height: 500, width: 500, crop: :fill %>
+        <% end %>
+
+      </div>
+
+    <% end %>
+
+  </div>
 
 </div>
